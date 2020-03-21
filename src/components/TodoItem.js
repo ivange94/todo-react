@@ -2,7 +2,11 @@ import React from 'react';
 
 function TodoItem(props) {
     return (
-        <span>Todo item</span>
+        <div className="card">
+            <div className="card-body">
+                <span>{props.title}</span><button className="btn btn-danger float-right">Delete</button>
+            </div>
+        </div>
     );
 }
 

@@ -9,6 +9,7 @@ class AddTodoBox extends React.Component {
     handleKeyPress(e) {
         if (e.key === "Enter") {
             this.props.onAdd(e.target.value);
+            e.target.value = "";
         }
     }
 

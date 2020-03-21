@@ -1,6 +1,7 @@
 import React from 'react';
 
 import AddTodoBox from './AddTodoBox';
+import TodoTable from './TodoTable';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,9 +12,9 @@ class App extends React.Component {
   }
 
   handleAdd(todo) {
-    console.log(todo);
-    this.state.todos.push(todo);
-    console.log(this.state.todos);
+    const todos = this.state.todos.slice();
+    todos.push(todo);
+    this.setState({todos: todos});
   }
 
   render() {
@@ -21,6 +22,7 @@ class App extends React.Component {
       <div className="App">
         <div className="container">
           <AddTodoBox title="Todos" onAdd={this.handleAdd}/>
+          <TodoTable todos={this.state.todos}/>
         </div>
       </div>
     )
