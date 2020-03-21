@@ -9,6 +9,7 @@ class App extends React.Component {
     this.state = {todos: []};
 
     this.handleAdd = this.handleAdd.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleAdd(todo) {
@@ -17,12 +18,20 @@ class App extends React.Component {
     this.setState({todos: todos});
   }
 
+  handleDelete(index) {
+    const todos = this.state.todos.slice();
+    todos.splice(index, 1);
+    this.setState({todos: todos});
+  }
+
   render() {
     return (
       <div className="App">
         <div className="container">
           <AddTodoBox title="Todos" onAdd={this.handleAdd}/>
-          <TodoTable todos={this.state.todos}/>
+          <TodoTable 
+            todos={this.state.todos}
+            onDelete={this.handleDelete}/>
         </div>
       </div>
     )
