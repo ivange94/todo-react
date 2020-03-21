@@ -1,19 +1,29 @@
 import React from 'react';
 
-import TodoHeader from './TodoHeader';
 import AddTodoBox from './AddTodoBox';
-import TodoTable from './TodoTable';
-import TodoItem from './TodoItem';
 
-function App() {
-  return (
-    <div className="App">
-      <TodoHeader />
-      <AddTodoBox />
-      <TodoTable />
-      <TodoItem />
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {todos: []};
+
+    this.handleAdd = this.handleAdd.bind(this);
+  }
+
+  handleAdd(todo) {
+    console.log(todo);
+    this.state.todos.push(todo);
+    console.log(this.state.todos);
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <div className="container">
+          <AddTodoBox title="Todos" onAdd={this.handleAdd}/>
+        </div>
+      </div>
+    )
+  }
 }
-
 export default App;
