@@ -11,8 +11,9 @@ A Todo app built with React. Built this while learning Reactjs.
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+You should see a page like this(your list of todos will be empty at first.)
+
+![Todo Home page](docs/todohome.png)
 
 ### Launch the test runner
 
