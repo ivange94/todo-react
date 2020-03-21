@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TodoItem() {
+function TodoItem(props) {
     return (
         <span>Todo item</span>
     );

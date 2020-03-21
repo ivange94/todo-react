@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TodoTable() {
+function TodoTable(props) {
     return (
         <span>New Todo table</span>
     );
