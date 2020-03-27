@@ -1,40 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import AddTodoBox from './AddTodoBox';
 import TodoTable from './TodoTable';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {todos: []};
+function App(props) {
+  const [todos, setTodos] = useState([])
 
-    this.handleAdd = this.handleAdd.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
+  function handleAdd(todo) {
+    const todos_new = todos.slice();
+    todos_new.push(todo);
+    setTodos(todos_new)
   }
 
-  handleAdd(todo) {
-    const todos = this.state.todos.slice();
-    todos.push(todo);
-    this.setState({todos: todos});
+  function handleDelete(index) {
+    const todos_new = todos.slice();
+    todos_new.splice(index, 1);
+    setTodos(todos_new);
   }
 
-  handleDelete(index) {
-    const todos = this.state.todos.slice();
-    todos.splice(index, 1);
-    this.setState({todos: todos});
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <div className="container">
-          <AddTodoBox title="Todos" onAdd={this.handleAdd}/>
-          <TodoTable 
-            todos={this.state.todos}
-            onDelete={this.handleDelete}/>
-        </div>
+  return (
+    <div className="App">
+      <div className="container">
+        <AddTodoBox title="Todos" onAdd={handleAdd}/>
+        <TodoTable 
+          todos={todos}
+          onDelete={handleDelete}/>
       </div>
-    )
-  }
+    </div>
+  )
 }
 export default App;
