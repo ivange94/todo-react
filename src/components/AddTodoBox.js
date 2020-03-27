@@ -1,26 +1,20 @@
 import React from 'react';
 
-class AddTodoBox extends React.Component {
-    constructor(props){
-        super(props);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
-    }
+function AddTodoBox(props) {
 
-    handleKeyPress(e) {
-        if (e.key === "Enter") {
-            this.props.onAdd(e.target.value);
+    function handleKeyPress(e) {
+        if (e.key === 'Enter') {
+            props.onAdd(e.target.value);
             e.target.value = "";
         }
     }
 
-    render() {
-        return (
-            <div className="AddTodoBox text-center">
-                <h1>{this.props.title}</h1>
-                <input type="text" className="form-control" placeholder="Add Todo" onKeyPress={this.handleKeyPress}/>
-            </div>
-          );
-    }
+    return (
+        <div className="AddTodoBox text-center">
+            <h1>{props.title}</h1>
+            <input type="text" className="form-control" placeholder="Add Todo" onKeyPress={handleKeyPress}/>
+        </div>
+    )
 }
 
 export default AddTodoBox;
